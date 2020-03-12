@@ -14,13 +14,13 @@ import { FormService } from '../_services/form.service';
 })
 export class SinglePageUpsert implements OnInit {
  
-  @Input() modelClassName:string;
+  @Input() modelName:string;
   fields:any;
-  form: FormGroup;
+  crud_form: FormGroup;
   showJson = false;
 
   get value() {
-    return this.form.value;
+    return this.crud_form.value;
   }
 
   constructor(
@@ -33,11 +33,11 @@ export class SinglePageUpsert implements OnInit {
   }
 
   getConfigs() {
-    this._service.fetchConfig(this.modelClassName)
+    this._service.fetchConfig(this.modelName)
     .subscribe(
       (data)=>{
         this.fields = data;
-        this.form = this.createControl();
+        this.crud_form = this.createControl();
       }
     );
   }
@@ -55,7 +55,7 @@ export class SinglePageUpsert implements OnInit {
   }
 
   onSubmit(event: Event) {
-    console.log(this.form.value);
+    console.log(this.crud_form.value);
     this.showJson = true;
   }
 }

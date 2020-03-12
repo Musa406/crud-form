@@ -8,14 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class OperationalPeriodsComponent{
 
-  modelName: string;
+  modeClassName: string;
   createClicked = false;
-  constructor(){
-
-  }
+  constructor(){}
 
   createForm(){
     this.createClicked = true;
-    // this.router.navigate(['./create', this.modelName],{ relativeTo: this.activatedRoute});
   }
 }

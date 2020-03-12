@@ -1,8 +1,10 @@
-<form class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)">
+<form class="dynamic-form" [formGroup]="crud_form" (submit)="onSubmit($event)">
+
+   <div *ngIf="fields">
     <ng-container *ngFor="let field of fields;">
         
-        <div *ngIf="field.edit.type != 'hidden'"
-         dynamicField [field]="field" [group]="form">
+        <div *ngIf="field.edit.type != 'hidden' && field.edit.cellTemplate == null"
+         dynamicField [field]="field" [group]="crud_form">
         </div>
 
         <div *ngIf="field.edit.cellTemplate != null">
@@ -10,7 +12,9 @@
         </div>
         <br>
     </ng-container>
-    
+
+   </div>
+        
     <div class="row">
         <div class="col-md-2">
             <button mat-raised-button color="primary">Save</button>
@@ -20,7 +24,7 @@
         </div>
        
     </div>
-    <h6 *ngIf = "showJson">{{form.value | json }}</h6>
+    <h6 *ngIf = "showJson">{{crud_form.value | json }}</h6>
 </form>
 
 
