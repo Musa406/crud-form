@@ -1,10 +1,14 @@
 <div>
- 
     <input matInput placeholder="Model Name" [(ngModel)]="modelName">
     <button mat-raised-button color="primary" (click)="createForm()">Create</button>
-    <!-- <app-form-setter modelName = "OperataionType" *ngIf = "createClicked"></app-form-setter> -->
+</div>
+
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+      <single-page-upsert modelClassName={{modelName}} *ngIf="createClicked"></single-page-upsert>
+    </div>
   </div>
+
   
-  <div>
-    <router-outlet></router-outlet>
-  </div>

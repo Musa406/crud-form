@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FieldConfig } from '../configs/field.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +26,10 @@ export class FormService {
 
     return next.handle(req);
   }
-
-
+  
   fetchConfig(modelName: string){
     const configAPI = this.getUrl(modelName);
-    return this.http.get<any>(configAPI);
+    return this.http.get<[]>(configAPI);
   }
   
   getUrl(modelName): any {

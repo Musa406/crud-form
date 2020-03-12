@@ -12,11 +12,10 @@ import { DateComponent } from './components/date/date.component';
 import { ButtonComponent } from './components/button/button.component';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
-import { DynamicFieldDirective } from './components/directive/dynamic-field.directive';
+import { SinglePageUpsert } from './upsert/single-page-upsert';
+import { DynamicFieldDirective } from './directive/dynamic-field.directive';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormService } from './_services/form.service';
-import { FormComponent } from './create-form/single-page-upsert.component';
 import { RoutingModule } from './routing/routing.module';
 import { OperationalPeriodsComponent } from './operational-periods/operational-periods.component';
 import { CellTemplateComponent } from './cell-template/cell-template.component';
@@ -29,9 +28,8 @@ import { CellTemplateComponent } from './cell-template/cell-template.component';
     DateComponent,
     ButtonComponent,
     RadioButtonComponent,
-    DynamicFormComponent,
+    SinglePageUpsert,
     DynamicFieldDirective,
-    FormComponent,
     OperationalPeriodsComponent,
     CellTemplateComponent
   ],

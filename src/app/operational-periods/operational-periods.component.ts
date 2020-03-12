@@ -10,12 +10,12 @@ export class OperationalPeriodsComponent{
 
   modelName: string;
   createClicked = false;
-  constructor(private activatedRoute: ActivatedRoute, private router: Router){
+  constructor(){
 
   }
 
   createForm(){
     this.createClicked = true;
-    this.router.navigate(['./create', this.modelName],{ relativeTo: this.activatedRoute});
+    // this.router.navigate(['./create', this.modelName],{ relativeTo: this.activatedRoute});
   }
 }

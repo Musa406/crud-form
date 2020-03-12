@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FieldConfig } from 'src/app/field.interface';
+import { FieldConfig } from 'src/app/configs/field.interface';
 import { FormGroup } from '@angular/forms';
 import { FormService } from 'src/app/_services/form.service';
 
@@ -26,8 +26,6 @@ export class SelectComponent implements OnInit {
     .subscribe(
       (data)=>{
         this.options = data;
-        console.log('test options');
-        console.log(this.options);
       }
     );
   }
