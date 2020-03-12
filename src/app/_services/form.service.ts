@@ -8,8 +8,6 @@ import { FieldConfig } from '../configs/field.interface';
 })
 export class FormService {
 
-  iStreamConfig = 'config/OperationalPeriod/get';
-  iStreamDropOption1 ='valuelabel/FiscalYear';
   iStreamBaseUrl = 'http://172.16.0.140:8088/';
 
 
@@ -26,7 +24,7 @@ export class FormService {
 
     return next.handle(req);
   }
-  
+
   fetchConfig(modelName: string){
     const configAPI = this.getUrl(modelName);
     return this.http.get<[]>(configAPI);
