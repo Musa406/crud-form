@@ -15,10 +15,10 @@ export class RadioButtonComponent implements OnInit {
   
   constructor(private _service: FormService) {}
   ngOnInit() {
-    this.extractDropdown();
+    this.extractRadioButton();
   }
 
-  extractDropdown() {
+  extractRadioButton() {
     this._service.fetchOption('')
     .subscribe(
       (data)=>{

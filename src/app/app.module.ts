@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material/material.module';
 import { InputComponent } from './components/input/input.component';
-import { SelectComponent } from './components/select/select.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { DateComponent } from './components/date/date.component';
 import { ButtonComponent } from './components/button/button.component';
@@ -19,11 +19,15 @@ import { FormService } from './_services/form.service';
 import { RoutingModule } from './routing/routing.module';
 import { OperationalPeriodsComponent } from './operational-periods/operational-periods.component';
 import { CellTemplateComponent } from './cell-template/cell-template.component';
+import { TextareaComponent } from './components/textarea/textarea.component';
+import { PasswordComponent } from './components/password/password.component';
+import { EditaleDropdownComponent } from './components/editable-dropdown/editable-dropdown.component';
+import { ChecklistComponent } from './components/checklist/checklist.component';
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    SelectComponent,
+    DropdownComponent,
     CheckboxComponent,
     DateComponent,
     ButtonComponent,
@@ -31,7 +35,11 @@ import { CellTemplateComponent } from './cell-template/cell-template.component';
     SinglePageUpsert,
     DynamicFieldDirective,
     OperationalPeriodsComponent,
-    CellTemplateComponent
+    CellTemplateComponent,
+    TextareaComponent,
+    PasswordComponent,
+    EditaleDropdownComponent,
+    ChecklistComponent
   ],
   imports: [
     
@@ -47,10 +55,13 @@ import { CellTemplateComponent } from './cell-template/cell-template.component';
   entryComponents: [
     InputComponent,
     ButtonComponent,
-    SelectComponent,
+    DropdownComponent,
     DateComponent,
     CheckboxComponent,
-    RadioButtonComponent
+    RadioButtonComponent,
+    PasswordComponent,
+    TextareaComponent,
+    ChecklistComponent
   ]
 })
 export class AppModule { }

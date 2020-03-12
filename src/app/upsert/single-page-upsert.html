@@ -1,18 +1,17 @@
 <form class="dynamic-form" [formGroup]="crud_form" (submit)="onSubmit($event)">
 
    <div *ngIf="fields">
-    <ng-container *ngFor="let field of fields;">
-        
-        <div *ngIf="field.edit.type != 'hidden' && field.edit.cellTemplate == null"
-         dynamicField [field]="field" [group]="crud_form">
-        </div>
+        <ng-container *ngFor="let field of fields;">
+            
+            <div *ngIf="field.edit.type != 'hidden' && field.edit.cellTemplate == null"
+            dynamicField [field]="field" [group]="crud_form">
+            </div>
 
-        <div *ngIf="field.edit.cellTemplate != null">
-                <app-cell-template cellTemplateName = {{field.edit.cellTemplate}}></app-cell-template>
-        </div>
-        <br>
-    </ng-container>
-
+            <div *ngIf="field.edit.cellTemplate != null">
+                    <app-cell-template cellTemplateName = {{field.edit.cellTemplate}}></app-cell-template>
+            </div>
+            <br>
+        </ng-container>
    </div>
         
     <div class="row">

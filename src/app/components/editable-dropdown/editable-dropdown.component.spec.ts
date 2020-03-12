@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectComponent } from './select.component';
+import { EditaleDropdownComponent } from './editale-dropdown.component';
 
-describe('SelectComponent', () => {
-  let component: SelectComponent;
-  let fixture: ComponentFixture<SelectComponent>;
+describe('EditaleDropdownComponent', () => {
+  let component: EditaleDropdownComponent;
+  let fixture: ComponentFixture<EditaleDropdownComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectComponent ]
+      declarations: [ EditaleDropdownComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SelectComponent);
+    fixture = TestBed.createComponent(EditaleDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

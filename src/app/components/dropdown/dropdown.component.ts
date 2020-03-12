@@ -4,11 +4,11 @@ import { FormGroup } from '@angular/forms';
 import { FormService } from 'src/app/_services/form.service';
 
 @Component({
-  selector: 'app-select',
-  templateUrl: './select.component.html',
-  styleUrls: ['./select.component.css']
+  selector: 'app-dropdown',
+  templateUrl: './dropdown.component.html',
+  styleUrls: ['./dropdown.component.css']
 })
-export class SelectComponent implements OnInit {
+export class DropdownComponent implements OnInit {
 
   field: FieldConfig;
   group: FormGroup;

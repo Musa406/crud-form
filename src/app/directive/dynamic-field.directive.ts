@@ -10,18 +10,24 @@ import { FormGroup } from "@angular/forms";
 import { FieldConfig } from "../configs/field.interface";
 import { InputComponent } from "../components/input/input.component";
 import { ButtonComponent } from "../components/button/button.component";
-import { SelectComponent } from "../components/select/select.component";
+import { DropdownComponent } from "../components/dropdown/dropdown.component";
 import { DateComponent } from "../components/date/date.component";
 import { CheckboxComponent } from "../components/checkbox/checkbox.component";
 import { RadioButtonComponent } from '../components/radio-button/radio-button.component';
+import { PasswordComponent } from '../components/password/password.component';
+import { TextareaComponent } from '../components/textarea/textarea.component';
 
 const componentMapper = {
-  input: InputComponent,
+  textbox: InputComponent,
   button: ButtonComponent,
-  dropdown : SelectComponent,
+  dropdown : DropdownComponent,
   datepicker: DateComponent,
   checkbox: CheckboxComponent,
-  radiobutton: RadioButtonComponent
+  radiobutton: RadioButtonComponent,
+  password: PasswordComponent,
+  textarea: TextareaComponent
+
+
 };
 @Directive({
   selector: "[dynamicField]"
@@ -40,7 +46,7 @@ export class DynamicFieldDirective implements OnInit {
 
   ngOnInit() {
     if((this.field.edit.type==null) && (this.field.edit.cellTemplate==null)){
-      this.field.edit.type = 'input';
+      this.field.edit.type = 'textbox';
     }
 
       this.factory = this.resolver.resolveComponentFactory(
