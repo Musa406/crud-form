@@ -1,0 +1,5 @@
+<mat-form-field class="demo-full-width margin-top" [formGroup]="group">
+    <mat-select [formControlName]="field.name" [placeholder]="field.edit.defaultOptionLabel" >
+        <mat-option *ngFor="let item of options" [value]="item.value" >{{item.label}}</mat-option>
+    </mat-select>
+</mat-form-field>

@@ -1,0 +1,24 @@
+<form class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)">
+    <ng-container *ngFor="let field of fields;">
+        <div *ngIf="field.edit.type != 'hidden' && field.edit.type != null" dynamicField [field]="field" [group]="form">
+
+        </div>
+        <div *ngIf="field.edit.cellTemplate != null">
+                <app-cell-template cellTemplateName = {{field.edit.cellTemplate}}></app-cell-template>
+        </div>
+        <br>
+    </ng-container>
+    
+    <div class="row">
+        <div class="col-md-2">
+            <button mat-raised-button color="primary">Save</button>
+        </div>
+        <div class="col-md-2">
+            <button mat-raised-button color="warn" (click) = "onCancelled()">Cancel</button>
+        </div>
+       
+    </div>
+        
+</form>
+
+<h6 *ngIf = "showJson">{{form.value | json }}</h6>

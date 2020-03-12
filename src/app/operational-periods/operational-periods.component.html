@@ -1,0 +1,10 @@
+<div>
+ 
+    <input matInput placeholder="Model Name" [(ngModel)]="modelName">
+    <button mat-raised-button color="primary" (click)="createForm()">Create</button>
+    <!-- <app-form-setter modelName = "OperataionType" *ngIf = "createClicked"></app-form-setter> -->
+  </div>
+  
+  <div>
+    <router-outlet></router-outlet>
+  </div>
