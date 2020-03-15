@@ -1,5 +1,21 @@
-<mat-form-field class="demo-full-width margin-top" [formGroup]="group">
+
+<mat-form-field class="example-full-width" [formGroup]="group">
     <mat-select [formControlName]="field.name" [placeholder]="field.edit.defaultOptionLabel" >
         <mat-option *ngFor="let item of options" [value]="item.value" >{{item.label}}</mat-option>
     </mat-select>
 </mat-form-field>
+
+<!-- <div *ngIf = "filteredOptions">
+    <form class="example-form" [formGroup]="group">
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options | async" [value]="option.value">
+              {{option.label}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+</div> -->
+   
+

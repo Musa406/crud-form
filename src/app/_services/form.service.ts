@@ -35,7 +35,7 @@ export class FormService {
   }
 
   
-  fetchOption(optionUrl){
+  fetchOption(optionUrl): Observable<any>{
     //console.log(this.iStreamBaseUrl+this.iStreamDropOption1)
     return this.http.get<any>(this.iStreamBaseUrl+optionUrl);
   }

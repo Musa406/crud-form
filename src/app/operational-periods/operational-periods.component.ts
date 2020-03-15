@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class OperationalPeriodsComponent{
 
-  modeClassName: string;
+  modeClasslName: string;
   createClicked = false;
   constructor(){}
 

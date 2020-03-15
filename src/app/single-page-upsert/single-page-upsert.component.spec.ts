@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditaleDropdownComponent } from './editable-dropdown.component';
+import { SinglePageUpsertComponent } from './single-page-upsert.component';
 
-describe('EditaleDropdownComponent', () => {
-  let component: EditaleDropdownComponent;
-  let fixture: ComponentFixture<EditaleDropdownComponent>;
+describe('SinglePageUpsertComponent', () => {
+  let component: SinglePageUpsertComponent;
+  let fixture: ComponentFixture<SinglePageUpsertComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditaleDropdownComponent ]
+      declarations: [ SinglePageUpsertComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditaleDropdownComponent);
+    fixture = TestBed.createComponent(SinglePageUpsertComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

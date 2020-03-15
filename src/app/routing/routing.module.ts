@@ -5,8 +5,7 @@ import { OperationalPeriodsComponent } from '../operational-periods/operational-
 
 const routes: Routes = [
   { path: '', redirectTo:'operationalPeriods', pathMatch:'full' },
-  { path: 'operationalPeriods', component: OperationalPeriodsComponent,
-  }
+  { path: 'operationalPeriods', component: OperationalPeriodsComponent}
 ];
 
 @NgModule({
