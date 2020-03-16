@@ -24,8 +24,8 @@ import { PasswordComponent } from './components/password/password.component';
 import { EditaleDropdownComponent } from './components/editable-dropdown/editable-dropdown.component';
 import { ChecklistComponent } from './components/checklist/checklist.component';
 import { SinglePageUpsertComponent } from './single-page-upsert/single-page-upsert.component';
-
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { NgSelectModule } from '@ng-select/ng-select';
+// import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +53,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     ReactiveFormsModule,
     HttpClientModule,
     RoutingModule,
-    NgxMatSelectSearchModule
+    NgSelectModule
+    // NgxMatSelectSearchModule
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: FormService, multi: true }],
   bootstrap: [AppComponent],

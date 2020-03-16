@@ -18,19 +18,32 @@ export class DropdownComponent implements OnInit {
   field: FieldConfig;
   group: FormGroup;
   options:any;
-  myControl = new FormControl();
   optionsUrl:string;
-  meta: any;
+
+  // myControl = new FormControl();
+  // 
+  // meta: any;
+
+
+  selectedOoptions = [];
+  selectedOptionLabel: string;
 
   constructor(private dpHttp: FormService) {
   }
-
-
 
   ngOnInit() {
      this.extractDropdown();
      
   }
+
+  onChange= ($event: any): void =>{
+    console.log($event); 
+  }
+  onAdd = ($event: any): void =>{
+    this.selectedOoptions.push($event);
+    console.log($event); 
+  }
+  
 
   extractDropdown() {
     this.optionsUrl = this.field.edit.optionSource;
@@ -39,62 +52,62 @@ export class DropdownComponent implements OnInit {
     .subscribe(
       (data)=>{
         this.options = data;
-        this.searchOnInit();
+        // this.searchOnInit();
       }
     );
   }
   
-  public formControl: FormControl;
+//   public formControl: FormControl;
   
   
-  public optionFilterCtrl: FormControl = new FormControl();
-  public filteredOptions: ReplaySubject<any> = new ReplaySubject<any>();
+//   public optionFilterCtrl: FormControl = new FormControl();
+//   public filteredOptions: ReplaySubject<any> = new ReplaySubject<any>();
 
-  protected _onDestroy = new Subject<void>();
+//   protected _onDestroy = new Subject<void>();
 
 
-  searchOnInit() {
-    this.formControl = this.group[this.field.name];
-    this.formControl.setValue(this.options[0]);
+//   searchOnInit() {
+//     this.formControl = this.group[this.field.name];
+//     this.formControl.setValue(this.options[0]);
 
-    this.filteredOptions.next(this.options.slice());
+//     this.filteredOptions.next(this.options.slice());
     
-    this.optionFilterCtrl.valueChanges
-      .pipe(takeUntil(this._onDestroy))
-      .subscribe(() => {
-        this.filterOptions();
-      });
-  }
+//     this.optionFilterCtrl.valueChanges
+//       .pipe(takeUntil(this._onDestroy))
+//       .subscribe(() => {
+//         this.filterOptions();
+//       });
+//   }
 
-  ngAfterViewInit() {
-    this.setInitialValue();
-  }
+//   ngAfterViewInit() {
+//     this.setInitialValue();
+//   }
 
-  ngOnDestroy() {
-    this._onDestroy.next();
-    this._onDestroy.complete();
-  }
+//   ngOnDestroy() {
+//     this._onDestroy.next();
+//     this._onDestroy.complete();
+//   }
 
-protected setInitialValue() {
-    this.filteredOptions
-      .pipe(take(1), takeUntil(this._onDestroy))
-      .subscribe(() => {
-      });
-}
+// protected setInitialValue() {
+//     this.filteredOptions
+//       .pipe(take(1), takeUntil(this._onDestroy))
+//       .subscribe(() => {
+//       });
+// }
 
-  protected filterOptions() {
-    if (!this.options) {
-      return;
-    }
-    let search = this.optionFilterCtrl.value;
-    if (!search) {
-      this.filteredOptions.next(this.options.slice());
-      return;
-    } else {
-      search = search.toLowerCase();
-    }
-    this.filteredOptions.next(
-      this.options.filter(option => option.name.toLowerCase().indexOf(search) > -1)
-    );
-  }
-}
+//   protected filterOptions() {
+//     if (!this.options) {
+//       return;
+//     }
+//     let search = this.optionFilterCtrl.value;
+//     if (!search) {
+//       this.filteredOptions.next(this.options.slice());
+//       return;
+//     } else {
+//       search = search.toLowerCase();
+//     }
+//     this.filteredOptions.next(
+//       this.options.filter(option => option.name.toLowerCase().indexOf(search) > -1)
+//     );
+//   }
+ }

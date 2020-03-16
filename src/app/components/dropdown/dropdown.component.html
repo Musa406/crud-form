@@ -1,4 +1,4 @@
-<mat-form-field [formGroup] = "group">
+<!-- <mat-form-field [formGroup] = "group">
     <mat-select [formControlName]="field.name" #singleSelect>
       <mat-option>
         <ngx-mat-select-search [formControl]="optionFilterCtrl"></ngx-mat-select-search>
@@ -8,7 +8,22 @@
         {{bank.label}}
       </mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> -->
+
+<div *ngIf="options">
+  <div [formGroup] = "group" class="example-full-width" >
+    <div>
+      <ng-select [items]="options"
+          bindLabel={{options.label}}
+          bindValue="value"
+          placeholder={{field.edit.defaultOptionLabel}}
+          (change)="onChange($event)"
+          [formControlName]="field.name"
+          >
+      </ng-select>
+    </div>
+    </div>
+</div>
 
 
 
