@@ -1,11 +1,11 @@
 
-<mat-form-field class="example-full-width" [formGroup]="group">
+<!-- <mat-form-field class="example-full-width" [formGroup]="group">
     <mat-select [formControlName]="field.name" [placeholder]="field.edit.defaultOptionLabel" >
         <mat-option *ngFor="let item of options" [value]="item.value" >{{item.label}}</mat-option>
     </mat-select>
-</mat-form-field>
-
-<!-- <div *ngIf = "filteredOptions">
+</mat-form-field> -->
+<!-- 
+<div *ngIf = "filteredOptions">
     <form class="example-form" [formGroup]="group">
         <mat-form-field class="example-full-width">
           <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
@@ -17,5 +17,26 @@
         </mat-form-field>
       </form>
 </div> -->
-   
+<!-- <mat-form-field class="example-full-width" [formGroup]="group">
+  <mat-select  [(ngModel)]="searchObj">
+    <input  placeholder ="search " (keyup)="onKey($event.target.value)" [formControlName="field.name"]> 
+    <mat-option  [value]='Select'>Select</mat-option>
+    <mat-option *ngFor="let data of dataArray" [value]="data">{{data.label}}</mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+
+  <mat-form-field [formGroup] = "group">
+    <mat-select [formControlName]="field.name" [placeholder] = field.name #singleSelect>
+      <mat-option>
+        <ngx-mat-select-search [formControl]="bankFilterCtrl"></ngx-mat-select-search>
+      </mat-option>
+
+      <mat-option *ngFor="let bank of filteredBanks | async" [value]="bank">
+        {{bank.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
 
