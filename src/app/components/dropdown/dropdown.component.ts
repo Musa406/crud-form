@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { FieldConfig } from 'src/app/configs/field.interface';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FormService } from 'src/app/_services/form.service';
@@ -13,101 +13,46 @@ import { MatSelect } from '@angular/material/select';
 })
 export class DropdownComponent implements OnInit {
 
-  @ViewChild('singleSelect', { static: true }) singleSelect: MatSelect;
-
   field: FieldConfig;
   group: FormGroup;
-  options:any;
-  optionsUrl:string;
-
-  // myControl = new FormControl();
-  // 
-  // meta: any;
-
-
-  selectedOoptions = [];
-  selectedOptionLabel: string;
+  dropdownOptions:any;
+  optionsSource:string;
+  selectedOption:any;
 
   constructor(private dpHttp: FormService) {
   }
 
+  // ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
+    
+  //   const dpControl = this.group.get(this.field.label);
+  //   dpControl.setValue(this.selectedOption);
+
+  //   this.group.controls[this.field.label].valueChanges.subscribe(
+  //     (selectedValue) => {
+  //       console.log(selectedValue);
+  //       console.log(this.group.value.question1);     
+  //     }
+  // );
+    
+  // }
+
   ngOnInit() {
      this.extractDropdown();
-     
-  }
 
-  onChange= ($event: any): void =>{
-    console.log($event); 
   }
-  onAdd = ($event: any): void =>{
-    this.selectedOoptions.push($event);
-    console.log($event); 
-  }
-  
+ 
+  // selectedOption = this.dropdownOptions[0].label;
 
   extractDropdown() {
-    this.optionsUrl = this.field.edit.optionSource;
-
-    this.dpHttp.fetchOption(this.optionsUrl)
+    this.optionsSource = this.field.edit.optionSource;
+  
+    this.dpHttp.fetchOption(this.optionsSource)
     .subscribe(
       (data)=>{
-        this.options = data;
-        // this.searchOnInit();
+        this.dropdownOptions = data;
+        // this.celectedOption = this.dropdownOptions[0].value;
+        console.log();
       }
     );
   }
-  
-//   public formControl: FormControl;
-  
-  
-//   public optionFilterCtrl: FormControl = new FormControl();
-//   public filteredOptions: ReplaySubject<any> = new ReplaySubject<any>();
-
-//   protected _onDestroy = new Subject<void>();
-
-
-//   searchOnInit() {
-//     this.formControl = this.group[this.field.name];
-//     this.formControl.setValue(this.options[0]);
-
-//     this.filteredOptions.next(this.options.slice());
-    
-//     this.optionFilterCtrl.valueChanges
-//       .pipe(takeUntil(this._onDestroy))
-//       .subscribe(() => {
-//         this.filterOptions();
-//       });
-//   }
-
-//   ngAfterViewInit() {
-//     this.setInitialValue();
-//   }
-
-//   ngOnDestroy() {
-//     this._onDestroy.next();
-//     this._onDestroy.complete();
-//   }
-
-// protected setInitialValue() {
-//     this.filteredOptions
-//       .pipe(take(1), takeUntil(this._onDestroy))
-//       .subscribe(() => {
-//       });
-// }
-
-//   protected filterOptions() {
-//     if (!this.options) {
-//       return;
-//     }
-//     let search = this.optionFilterCtrl.value;
-//     if (!search) {
-//       this.filteredOptions.next(this.options.slice());
-//       return;
-//     } else {
-//       search = search.toLowerCase();
-//     }
-//     this.filteredOptions.next(
-//       this.options.filter(option => option.name.toLowerCase().indexOf(search) > -1)
-//     );
-//   }
  }

@@ -23,6 +23,7 @@ export class DynamicFormComponent implements OnInit {
   
   ngOnInit() {
     this.crud_form = this.createControl();
+    console.log(this.crud_form);
   }
 
   get value() {

@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "crud-form"
+  "defaultProject": "crud-form",
+  "cli": {
+    "analytics": false
+  }
 }

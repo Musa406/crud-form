@@ -7,4 +7,7 @@
   .example-full-width {
     width: 30%;
   }
-  
+  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+    background-color: blue;
+    color: #333;
+}

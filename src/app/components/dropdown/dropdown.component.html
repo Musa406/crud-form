@@ -1,29 +1,59 @@
-<!-- <mat-form-field [formGroup] = "group">
-    <mat-select [formControlName]="field.name" #singleSelect>
-      <mat-option>
-        <ngx-mat-select-search [formControl]="optionFilterCtrl"></ngx-mat-select-search>
-      </mat-option>
-
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{bank.label}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field> -->
-
-<div *ngIf="options">
-  <div [formGroup] = "group" class="example-full-width" >
-    <div>
-      <ng-select [items]="options"
-          bindLabel={{options.label}}
-          bindValue="value"
-          placeholder={{field.edit.defaultOptionLabel}}
-          (change)="onChange($event)"
-          [formControlName]="field.name"
-          >
+<!-- <div *ngIf = "dropdownOptions">
+  <div [formGroup] = "group" class="example-full-width">
+    <div >
+        <ng-select
+              [items]="dropdownOptions"
+              [placeholder]="field.edit.defaultOptionLabel"
+              [bindLabel]="label"
+              [bindValue]="value"
+              [(ngModel)]="celectedOption"
+              >
+         
       </ng-select>
     </div>
+  </div>
+  <p style="color: blue;">{{dropdownOptions.label}}</p>
+</div> -->
+
+
+<!-- 
+<div *ngIf = "dropdownOptions">
+  <div [formGroup] = "group" class="example-full-width">
+
+        <ng-select
+          #select [items]="dropdownOptions"
+              [searchable]="false"
+              [placeholder]="field.edit.defaultOptionLabel"
+              [bindLabel]="dropdownOptions.label"
+              [bindValue]="dropdownOptions.value"
+              [formControlName]="field.name"
+              >
+              <ng-template ng-header-tmp>
+                  <input  style="width: 100%; line-height: 24px" type="text" (input)="select.filter($event.target.value)"/>
+              </ng-template>
+      </ng-select>
+
+  </div>
+</div> -->
+<div *ngIf = "dropdownOptions">
+    <div [formGroup] = "group" class="example-full-width">
+        <ng-select
+         #select
+          [items]="dropdownOptions" 
+          [searchable]="false"
+          [placeholder]="field.edit.defaultOptionLabel"
+          bindLabel="label"
+          bindValue="value"
+          formControlName="field.name"
+          >
+          
+          <ng-template ng-header-tmp>
+              <input style="width: 100%; line-height: 24px" type="text" (input)="select.filter($event.target.value)"/>
+          </ng-template>
+        </ng-select>
     </div>
 </div>
+
 
 
 
